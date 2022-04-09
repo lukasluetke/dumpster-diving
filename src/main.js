@@ -23,9 +23,15 @@ import '@ionic/vue/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+/* Store Pinia */
+
+import { createPinia } from 'pinia'
+
+
 const app = createApp(App)
   .use(IonicVue)
-  .use(router);
+  .use(router)
+  .use(createPinia())
   // provide('SUPABASE_KEY', "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MTQ1NzczMSwiZXhwIjoxOTU3MDMzNzMxfQ.gt2mp51qKMtSPdwjIEQGionSAPecpBcov2EyEiaa9EA")
   
 router.isReady().then(() => {
