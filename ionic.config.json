@@ -1,5 +1,7 @@
 {
   "name": "dumpster-diving-ionic",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "vue"
 }
