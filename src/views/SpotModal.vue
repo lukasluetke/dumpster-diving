@@ -1,6 +1,6 @@
 <template>
     <!-- Sheet Modal -->
-        <ion-content>
+        <ion-content> 
             <ion-card 
                 class="card" 
                 v-for="item in spot" 
