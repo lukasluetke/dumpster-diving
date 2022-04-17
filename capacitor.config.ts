@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'rettich.dumpster.diving',
   appName: 'dumpster-diving-ionic',
   webDir: 'dist',
   bundledWebRuntime: false

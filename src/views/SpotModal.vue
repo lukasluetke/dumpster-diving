@@ -19,7 +19,8 @@
                                     :icon="time" 
                                     color="dark">
                                 </ion-icon>
-                                <ion-label>
+                                <ion-label
+                                @click="check_day()">
                                     Ab {{ item.time }} Uhr
                                 </ion-label>
                             </ion-chip>
@@ -126,8 +127,11 @@ export default defineComponent({
     last_status_change: '',
     heute: '',
     last_status_change_month: '',
+    aktueller_wochentag: '',
+    days_of_week: '',
   }),
   setup() {
+    
     return { time }
   },
   async created() {
@@ -135,7 +139,7 @@ export default defineComponent({
     console.log(counter.count)
     const {data: events} = await supabase
       .from('events')
-      .select('description,name,status,time,last_status_change')
+      .select('description,name,status,time,last_status_change,days_of_week')
       .eq('id', counter.count)
     console.log(events)
     this.spot = events
@@ -203,6 +207,7 @@ export default defineComponent({
     pre_reset() {
       this.spot.forEach(element => {
         this.reset(element.status, element.last_status_change, element.time)
+        this.days_of_week = element.days_of_week
       });
     },
     reset(old_status, last_status_change, time) {
@@ -250,6 +255,29 @@ export default defineComponent({
         console.log('fehler')
       }
     },
+    // check_day() {
+    //   this.aktueller_wochentag = new Date().getDay()
+    //   console.log(this.aktueller_wochentag)
+    //   const day_to_check = this.days_of_week[this.aktueller_wochentag - 1]
+    //   const i
+    //   for (i = 7; i > 0; i--) {
+    //     if (day_to_check.isChecked == true) {
+    //       console.log('Heute hat der Laden offen')
+    //       //continue wihtout changes
+    //       this.time_since_change
+    //       // for abbrechen
+    //     } else if (day_to_check.isChecked == false) {
+    //       console.log('Der Laden hat heute geschlossen')
+    //       //Time_since_close_value um 1 Tag vergrößern
+          
+    //       this.time_since_close_value = this.time_since_close_value + (24 * 60)
+    //       //
+    //     } else {
+    //       console.log('fehler')
+    //     }
+    //   }
+    //   // this.time_since_change
+    // },
     time_since_change() {
       console.log('time since change:')
       const last_status_change_local = new Date(Date.parse(this.last_status_change) + (120 * 60000))

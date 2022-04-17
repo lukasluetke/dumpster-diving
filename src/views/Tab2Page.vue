@@ -13,8 +13,8 @@
       </ion-header>
       <l-map 
         z-index=0
-        :zoom="13" 
-        :center="[50.9223,11.5723]" 
+        :zoom="7" 
+        :center="[51.365, 10.459]" 
         :options="{zoomControl: false}">
         <l-tile-layer style="z-index: 100" url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"></l-tile-layer>
           <l-marker 
@@ -32,11 +32,10 @@
 
 <script>
 import { defineComponent } from 'vue';
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, modalController } from '@ionic/vue';
 import "leaflet/dist/leaflet.css"
 import { LMap, LTileLayer, LMarker } from "@vue-leaflet/vue-leaflet";
 import { supabase } from "@/supabase"
-import { modalController } from '@ionic/vue';
 import Modal from './SpotModal.vue';
 import { useCounterStore } from '@/stores/counter'
 
