@@ -27,13 +27,15 @@ import './theme/variables.css';
 
 import { createPinia } from 'pinia'
 
+import './registerServiceWorker'
+
 
 const app = createApp(App)
   .use(IonicVue)
   .use(router)
   .use(createPinia())
-  // provide('SUPABASE_KEY', "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MTQ1NzczMSwiZXhwIjoxOTU3MDMzNzMxfQ.gt2mp51qKMtSPdwjIEQGionSAPecpBcov2EyEiaa9EA")
-  
+// provide('SUPABASE_KEY', "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MTQ1NzczMSwiZXhwIjoxOTU3MDMzNzMxfQ.gt2mp51qKMtSPdwjIEQGionSAPecpBcov2EyEiaa9EA")
+
 router.isReady().then(() => {
   app.mount('#app');
 });

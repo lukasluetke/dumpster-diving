@@ -265,15 +265,15 @@ export default defineComponent({
     segmentChanged(ev) {
       console.log('Segment changed', ev);
     },
-    async beforeMount() {
-    // HERE is where to load Leaflet components!
-    const { circleMarker } = await import("leaflet/dist/leaflet-src.esm");
+  //   async beforeMount() {
+  //   // HERE is where to load Leaflet components!
+  //   const { circleMarker } = await import("leaflet/dist/leaflet-src.esm");
 
-    // And now the Leaflet circleMarker function can be used by the options:
-    this.geojsonOptions.pointToLayer = (feature, latLng) =>
-      circleMarker(latLng, { radius: 8 });
-    this.mapIsReady = true;
-  },
+  //   // And now the Leaflet circleMarker function can be used by the options:
+  //   this.geojsonOptions.pointToLayer = (feature, latLng) =>
+  //     circleMarker(latLng, { radius: 8 });
+  //   this.mapIsReady = true;
+  // },
   log() {
     // console.log(e.target.getLatLng());
     console.log(this.marker_position)
